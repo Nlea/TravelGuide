@@ -14,12 +14,13 @@ public class GarbageCollector implements JavaDelegate{
 	public void execute(DelegateExecution execution) throws Exception {
 		// TODO Auto-generated method stub
 		JSONObject names = new JSONObject();
-		//location
+		/*location
 		names = JSONWorker.addToJO(names, JSONWorker.getValFromExec("location_latitude", execution));
 		names = JSONWorker.addToJO(names, JSONWorker.getValFromExec("location_longitude", execution));
-		//DuckDuckGo
-		names = JSONWorker.addToJO(names, JSONWorker.getValFromExec("HappyDuckAppearsHappy", execution));
 		
+		names = JSONWorker.addToJO(names, JSONWorker.getValFromExec("HappyDuckAppearsHappy", execution));
+		*/
+		names = JSONWorker.addToJO(names, JSONWorker.getValFromExec("UrbanDef", execution));
 		
 		execution.setVariable("vals", names.toString());
 	}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.13.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.16.0">
   <bpmn:process id="TravelGuide" name="TravelGuide" isExecutable="true">
     <bpmn:startEvent id="StartEventProcessStarted" name="Data entered">
       <bpmn:outgoing>SequenceFlow_00ydi60</bpmn:outgoing>
@@ -17,11 +17,11 @@
       <bpmn:outgoing>SequenceFlow_110z616</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_1qotm7j" sourceRef="Task_1mvqbmj" targetRef="EndEventProcessEnded" />
-    <bpmn:userTask id="Task_1mvqbmj" name="Display information to user">
-      <bpmn:incoming>SequenceFlow_1810uva</bpmn:incoming>
+    <bpmn:userTask id="Task_1mvqbmj" name="Display information to user" camunda:formKey="embedded:app:forms/finalForm.html">
+      <bpmn:incoming>SequenceFlow_0ks6nqj</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1qotm7j</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="Task_03ig61r" name="DuckDuckGo" camunda:asyncAfter="true" camunda:class="/TravelGuide/src/main/java/Camunda/TravelGuide/DuckDuckGo.java">
+    <bpmn:serviceTask id="Task_03ig61r" name="DuckDuckGo" camunda:asyncAfter="true" camunda:class="Camunda.TravelGuide.DuckDuckGo">
       <bpmn:incoming>SequenceFlow_1p53g9b</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0mjfxxv</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -80,10 +80,15 @@
       <bpmn:outgoing>SequenceFlow_1810uva</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_110z616" sourceRef="Task_1vupu0c" targetRef="ExclusiveGateway_105nrei" />
-    <bpmn:sequenceFlow id="SequenceFlow_1810uva" sourceRef="ExclusiveGateway_105nrei" targetRef="Task_1mvqbmj" />
+    <bpmn:sequenceFlow id="SequenceFlow_1810uva" sourceRef="ExclusiveGateway_105nrei" targetRef="Task_1c49hug" />
     <bpmn:sequenceFlow id="SequenceFlow_1bog5ij" name="no" sourceRef="ExclusiveGateway_0s45koe" targetRef="ExclusiveGateway_105nrei">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">#{false}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0ks6nqj" sourceRef="Task_1c49hug" targetRef="Task_1mvqbmj" />
+    <bpmn:serviceTask id="Task_1c49hug" name="collect all the information" camunda:class="Camunda.TravelGuide.GarbageCollector">
+      <bpmn:incoming>SequenceFlow_1810uva</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ks6nqj</bpmn:outgoing>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="TravelGuide">
@@ -94,9 +99,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0fkea3f_di" bpmnElement="EndEventProcessEnded">
-        <dc:Bounds x="1342" y="229" width="36" height="36" />
+        <dc:Bounds x="1516" y="229" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1324" y="265" width="74" height="12" />
+          <dc:Bounds x="1497" y="265" width="76" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_00ydi60_di" bpmnElement="SequenceFlow_00ydi60">
@@ -113,14 +118,14 @@
         <dc:Bounds x="993" y="207" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1qotm7j_di" bpmnElement="SequenceFlow_1qotm7j">
-        <di:waypoint x="1315" y="247" />
-        <di:waypoint x="1342" y="247" />
+        <di:waypoint x="1483" y="247" />
+        <di:waypoint x="1516" y="247" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1283.5" y="226" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0ihkeyf_di" bpmnElement="Task_1mvqbmj">
-        <dc:Bounds x="1215" y="207" width="100" height="80" />
+        <dc:Bounds x="1383" y="207" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_1bu6xwi_di" bpmnElement="Task_03ig61r">
         <dc:Bounds x="624" y="207" width="100" height="80" />
@@ -260,7 +265,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1810uva_di" bpmnElement="SequenceFlow_1810uva">
         <di:waypoint x="1184" y="247" />
-        <di:waypoint x="1215" y="247" />
+        <di:waypoint x="1238" y="247" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1199.5" y="226" width="0" height="12" />
         </bpmndi:BPMNLabel>
@@ -274,6 +279,13 @@
           <dc:Bounds x="968" y="298" width="12" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ks6nqj_di" bpmnElement="SequenceFlow_0ks6nqj">
+        <di:waypoint x="1338" y="247" />
+        <di:waypoint x="1383" y="247" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1m41tc9_di" bpmnElement="Task_1c49hug">
+        <dc:Bounds x="1238" y="207" width="100" height="80" />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

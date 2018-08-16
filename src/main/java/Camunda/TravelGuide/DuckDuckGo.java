@@ -8,6 +8,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 
+import Camunda.utils.JSONWorker;
 import spinjar.com.jayway.jsonpath.JsonPath;
 
 
@@ -39,13 +40,7 @@ public class DuckDuckGo implements JavaDelegate {
 			def = "You are UNDEFINED";
 		}
 		
-		
-		//String def = JsonPath.read(response.getBody(), "$process_duckduckgo.Abstract");
-		
-		System.out.println("\n\n" + def + "\n\n");
-	
-
-			
+		exe.setVariable("HappyDuckAppearsHappy", def);			
 			
 	}
 

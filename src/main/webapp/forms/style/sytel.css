@@ -1,0 +1,13 @@
+body{
+	text-align:center;
+	color:cyan;
+	background-color:grey;}
+
+.mainPage{
+	background-color:lightgrey;
+}
+
+.resultDiv{
+white-space:pre;
+margin-top:2em;
+}

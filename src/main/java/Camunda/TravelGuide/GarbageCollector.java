@@ -29,6 +29,23 @@ public class GarbageCollector implements JavaDelegate {
 				System.out.println(i + " = " + varVals.get(i));
 			}
 		}
+		
+		names = JSONWorker.addToJO(names, "\n\nthe crazyness factor is about:" + this.getCrazyness(varVals) * 100 + "%");
 		execution.setVariable("vals", names.toString());
+	}
+	
+	public double getCrazyness(LinkedList<String> data) {
+		double a = 0;
+		double b = 0;
+		for(String str: data) {
+			for(char c: str.toCharArray()) {
+				if(c == 'a') {
+					a +=1;
+				}else if (c == 'b') {
+					b+=1;
+				}
+			}
+		}
+		return a/b;
 	}
 }

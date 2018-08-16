@@ -10,7 +10,7 @@
       <bpmn:incoming>SequenceFlow_1cbque2</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_1cbque2" sourceRef="Task_0nbk2hw" targetRef="EndEvent_19bahtd" />
-    <bpmn:userTask id="Task_0nbk2hw" name="some task " camunda:formKey="embedded:app:forms/finalForm.html">
+    <bpmn:userTask id="Task_0nbk2hw" name="some task " camunda:formKey="app:forms/finalFormWebsite.html">
       <bpmn:incoming>SequenceFlow_13r3kb9</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_1cbque2</bpmn:outgoing>
     </bpmn:userTask>

@@ -30,7 +30,7 @@ public class GarbageCollector implements JavaDelegate {
 			}
 		}
 		
-		names = JSONWorker.addToJO(names, "\n\nthe crazyness factor is about:" + this.getCrazyness(varVals) * 100 + "%");
+		names = JSONWorker.addToJO(names, "<br><br>the crazyness factor is about:" + this.getCrazyness(varVals) * 100 + "%");
 		execution.setVariable("vals", names.toString());
 	}
 	

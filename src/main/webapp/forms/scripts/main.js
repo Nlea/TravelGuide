@@ -15,6 +15,7 @@ function addToHtml(title, content) {
   divFirst.appendChild(divSecond);
 
   var div = document.createElement('div');
+  div.className = 'child';
   var myheadLine = document.createElement('h2');
   myheadLine.innerHTML = title;
   div.innerHTML = content;
@@ -26,6 +27,7 @@ function addToHtml(title, content) {
 }
 
 function parseVaribles(variables) {
+  console.log(variables);
   var keys = Object.keys(variables);
 
   keys.map(function(key) {
@@ -55,7 +57,7 @@ function fetchVariables(id) {
 function handleSubmit(e) {
   var name = document.getElementById('name').value;
   document.getElementById('form').style.display = 'none';
-  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').style.display = 'flex';
 
   var url =
     'http://localhost:8080/engine-rest/process-instance?businessKey=' + name;

@@ -2,8 +2,6 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="http://localhost:8080/TravelGuide/forms/style/style.css">
-
 <title>
 Camunda Travel Guide
 </title>
@@ -15,23 +13,27 @@ Camunda Travel Guide
 <meta name="keywords" content="just a random api calling website">
 <meta http-equiv="expires" content="Wed, 16 August 2028 12:12:12 GMT +01:00">
 <meta name="revisit-after" content="3650 Days">
+<link rel="stylesheet" href="https://unpkg.com/picnic">
+<link rel="stylesheet" href="style/main.css">
 
 </head>
 
 <body>
+	<div class="content">
 	<h1>Hello traveler!</h1>
-	<form method="post">
-		<div>
+	<form id="form" method="post">
+		<fieldset class="flex two">
 			<label for="name">businessKey:</label>
 			<input type="text" id="name" name="user_name">
-		</div>
+		</fieldset>
 		<br />
 		<button type="submit" onclick="return handleSubmit()">Los geht's</button>
 	</form>
 
-	<p id="results">
+	<div id="results" style="display:none" class="flex three demo">
 
-	</p>
+	</div>
+</div>
 	<script src="scripts/main.js"></script>
 </body>
 </html>

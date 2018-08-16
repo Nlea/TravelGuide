@@ -1,0 +1,19 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #000;
+}
+.content {
+  padding: 2em;
+}
+.card {
+  border: 1px solid #f0f0f0;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #d1d1d1;
+  background: #f1f1f1;
+  padding: 1em;
+  margin: 1em 1em 0 1em;
+}
+
+.card img {
+  width: 100%;
+}

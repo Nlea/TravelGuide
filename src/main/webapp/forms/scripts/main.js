@@ -27,7 +27,6 @@ function addToHtml(title, content) {
 }
 
 function parseVaribles(variables) {
-  console.log(variables);
   var keys = Object.keys(variables);
 
   keys.map(function(key) {
